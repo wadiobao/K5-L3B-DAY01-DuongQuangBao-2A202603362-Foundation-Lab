@@ -1,0 +1,167 @@
+{
+ "seed": 8098,
+ "predictions": {
+  "ml_f1": {
+   "text": "0.85",
+   "time": "16:29:44"
+  },
+  "ml_lr": {
+   "text": "0.8",
+   "time": "16:29:51"
+  },
+  "dl_curve": {
+   "text": "0.9",
+   "time": "16:30:37"
+  },
+  "dl_relu": {
+   "text": "0.8",
+   "time": "16:30:58"
+  },
+  "emb_search": {
+   "text": "0.5",
+   "time": "16:34:17"
+  },
+  "emb_tricky": {
+   "text": "0.9",
+   "time": "16:35:31"
+  },
+  "llm_models": {
+   "text": "0.9",
+   "time": "16:45:45"
+  },
+  "llm_fewshot": {
+   "text": "0.9",
+   "time": "16:45:45"
+  },
+  "tradeoff": {
+   "text": "0.2",
+   "time": "16:46:35"
+  },
+  "hard_eval": {
+   "text": "0.5",
+   "time": "16:47:14"
+  }
+ },
+ "checks": {
+  "1.1 vectorize": true,
+  "1.2 sigmoid / predict_proba": true,
+  "1.3 train_logreg": true,
+  "1.4 metrics": true,
+  "2.1 build_mlp": true,
+  "2.2 train_mlp": true,
+  "3.1–3.2 cosine / top_k_similar": true,
+  "3.3 knn_predict": true,
+  "4.2–4.3 prompt / parse_label": true,
+  "4.1 + 4.4 call_openai / llm_classify_batch": true,
+  "tính tay: baseline_accuracy": true,
+  "tính tay: sigmoid_0": true,
+  "tính tay: f1_example": true,
+  "tính tay: cosine_example": true,
+  "tính tay: llm_cost_per_day": true
+ },
+ "experiments": [
+  {
+   "key": "ml_f1",
+   "time": "16:29:44"
+  },
+  {
+   "key": "ml_lr",
+   "time": "16:29:51"
+  },
+  {
+   "key": "dl_curve",
+   "time": "16:30:37"
+  },
+  {
+   "key": "dl_relu",
+   "time": "16:30:58"
+  },
+  {
+   "key": "emb_search",
+   "time": "16:34:17"
+  },
+  {
+   "key": "emb_tricky",
+   "time": "16:35:31"
+  },
+  {
+   "key": "llm_models",
+   "time": "16:45:45"
+  },
+  {
+   "key": "llm_fewshot",
+   "time": "16:45:45"
+  },
+  {
+   "key": "tradeoff",
+   "time": "16:46:36"
+  },
+  {
+   "key": "hard_eval",
+   "time": "16:47:15"
+  }
+ ],
+ "challenge": 4,
+ "results": {
+  "1. BoW + LogReg (tự code)": {
+   "accuracy": 0.9716129032258064,
+   "precision": 0.9878048780487805,
+   "recall": 0.7941176470588235,
+   "f1": 0.8804347826086957,
+   "f1_SUB": 0.9189189189189189,
+   "train_s": 6.022006885999986,
+   "msg_per_s": 11996.138388880045,
+   "p50_ms": 0.05557399998679102,
+   "p95_ms": 0.10055099992882784,
+   "usd_per_1k": 0.0
+  },
+  "2. BoW + MLP (deep learning)": {
+   "accuracy": 0.983225806451613,
+   "precision": 0.978494623655914,
+   "recall": 0.8921568627450981,
+   "f1": 0.9333333333333333,
+   "f1_SUB": 0.8947368421052632,
+   "train_s": 20.54352983399997,
+   "msg_per_s": 12701.15724094598,
+   "p50_ms": 0.41042649996825276,
+   "p95_ms": 2.784967750039868,
+   "usd_per_1k": 0.0
+  },
+  "3a. Encoder (MiniLM) + kNN": {
+   "accuracy": 0.9754838709677419,
+   "precision": 0.8738738738738738,
+   "recall": 0.9509803921568627,
+   "f1": 0.9107981220657277,
+   "f1_SUB": 0.975609756097561,
+   "train_s": 98.27158842899996,
+   "msg_per_s": 27.93510384404992,
+   "p50_ms": 81.14950700002055,
+   "p95_ms": 126.87783390007894,
+   "usd_per_1k": 0.0
+  },
+  "3b. Encoder (MiniLM) + LogReg": {
+   "accuracy": 0.9819354838709677,
+   "precision": 0.9150943396226415,
+   "recall": 0.9509803921568627,
+   "f1": 0.9326923076923077,
+   "f1_SUB": 0.975609756097561,
+   "train_s": 101.28566365899997,
+   "msg_per_s": 41.21624329259306,
+   "p50_ms": 30.3497454999615,
+   "p95_ms": 37.7655044999926,
+   "usd_per_1k": 0.0
+  },
+  "3c. Encoder (MiniLM) + MLP head": {
+   "accuracy": 0.9870967741935484,
+   "precision": 0.96,
+   "recall": 0.9411764705882353,
+   "f1": 0.9504950495049505,
+   "f1_SUB": 0.9743589743589743,
+   "train_s": 99.34971120199998,
+   "msg_per_s": 45.25411221525064,
+   "p50_ms": 30.39401450001833,
+   "p95_ms": 38.64468790003457,
+   "usd_per_1k": 0.0
+  }
+ }
+}
